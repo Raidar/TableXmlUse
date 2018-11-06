@@ -1,0 +1,10 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+    <!-- Config -->
+    <entry key="APP_PROPERTY_EMPTY">Config file or property key is bad: Key '%s' returns null</entry>
+
+    <!-- Database -->
+    <entry key="DRIVER_CLASS_NAME">org.sqlite.JDBC</entry>
+    <entry key="DATABASE_NAME">org_man.db</entry>
+
+</properties>
