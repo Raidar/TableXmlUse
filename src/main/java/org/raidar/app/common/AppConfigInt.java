@@ -12,15 +12,14 @@ public interface AppConfigInt {
 	// Logger.
 	String LOGGER = "AppLogger";
 
-	// Application.
-	String ARG_DB_INIT = "init";
-
 	// Class.
 	String UTILITY_CLASS_ERROR = "Utility class";
 
 	// Database.
 	String DRIVER_CLASS_NAME = "DRIVER_CLASS_NAME";
-	String appDatabaseType = "jdbc:sqlite:";
-	String APP_DATABASE_NAME = "DATABASE_NAME";
+	String APP_DATABASE_TYPE = "APP_DATABASE_TYPE";
+	String APP_DATABASE_NAME = "APP_DATABASE_NAME";
 
+	// Application.
+	String APP_CONSOLE_HELP = "APP_CONSOLE_HELP";
 }

@@ -1,13 +1,11 @@
 package org.raidar.app.common;
 
-import org.apache.log4j.Logger;
+import org.raidar.app.errors.BaseLogger;
 import org.raidar.app.utils.AppConfigReader;
 
 import java.util.Properties;
 
 public class AppConfig implements AppConfigInt {
-
-	private static final Logger logger = Logger.getLogger(AppConfigInt.LOGGER);
 
 	private static Properties properties;
 
@@ -37,16 +35,16 @@ public class AppConfig implements AppConfigInt {
 
 			} else {
 				String errMessage = String.format(props.getProperty(APP_PROPERTY_KEY, errorPropertyKey), key);
-				ThrowHelper.throwBy(errMessage);
+				BaseLogger.error(errMessage);
 
-				return null;
+				throw new AppException(errMessage);
 			}
 
 		} else {
 			String errMessage = String.format(errorPropertyKey, key);
-			ThrowHelper.throwBy(errMessage);
+			BaseLogger.error(errMessage);
 
-			return null;
+			throw new AppException(errMessage);
 		}
 	}
 

@@ -5,6 +5,14 @@
 
     <!-- Database -->
     <entry key="DRIVER_CLASS_NAME">org.sqlite.JDBC</entry>
-    <entry key="DATABASE_NAME">org_man.db</entry>
+    <entry key="APP_DATABASE_TYPE">jdbc:sqlite:</entry>
+    <entry key="APP_DATABASE_NAME">org_man.db</entry>
+
+    <!-- Application -->
+    <entry key="APP_CONSOLE_HELP"><![CDATA[Help:
+init - initialize db
+load filename - load from file
+save filename - save to file
+    ]]></entry>
 
 </properties>

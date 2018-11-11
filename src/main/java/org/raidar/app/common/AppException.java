@@ -1,8 +1,5 @@
 package org.raidar.app.common;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.Priority;
-
 public class AppException extends RuntimeException {
 
 	@SuppressWarnings("unused")
@@ -14,6 +11,7 @@ public class AppException extends RuntimeException {
 		super(message);
 	}
 
+	@SuppressWarnings("unused")
 	public AppException (String message, Throwable thrown) {
 		super(message, thrown);
 	}
