@@ -2,7 +2,7 @@ package org.raidar.app.utils;
 
 import org.raidar.app.common.AppConfigInt;
 import org.raidar.app.common.AppException;
-import org.raidar.app.errors.WideLogger;
+import org.raidar.app.logging.WideLogger;
 
 import java.io.IOException;
 import java.io.InputStream;

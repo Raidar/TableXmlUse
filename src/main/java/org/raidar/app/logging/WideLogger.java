@@ -1,6 +1,6 @@
-package org.raidar.app.errors;
+package org.raidar.app.logging;
 
-public class WideThrower extends Thrower {
+public class WideLogger extends BaseLogger {
 
 	private static final String textCaption = "Ошибка приложения:\r\n";
 	private static final String textDetails = "\r\nПодробности:\r\n";
@@ -28,8 +28,8 @@ public class WideThrower extends Thrower {
 		return textCaption + message + details;
 	}
 
-	public static void newBy (String message, Throwable thrown) {
-		Thrower.newBy(message, thrown, getMessage(thrown));
+	public static void error (String message, Throwable thrown) {
+		BaseLogger.error(message, thrown, getMessage(thrown));
 	}
 
 }

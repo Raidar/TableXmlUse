@@ -1,6 +1,6 @@
 package org.raidar.app.common;
 
-import org.raidar.app.errors.BaseLogger;
+import org.raidar.app.logging.BaseLogger;
 import org.raidar.app.utils.AppConfigReader;
 
 import java.util.Properties;

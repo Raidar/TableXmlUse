@@ -3,7 +3,8 @@ package org.raidar.app.db;
 import org.apache.log4j.Logger;
 import org.raidar.app.common.AppConfig;
 import org.raidar.app.common.AppConfigInt;
-import org.raidar.app.common.ThrowHelper;
+import org.raidar.app.common.AppException;
+import org.raidar.app.logging.WideLogger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,7 +25,7 @@ public class DataConnector {
 	}
 
 	private static String getDatabaseUrl () {
-		return AppConfigInt.appDatabaseType +
+		return AppConfig.getProperty(AppConfigInt.APP_DATABASE_TYPE) +
 			   AppConfig.getProperty(AppConfigInt.APP_DATABASE_NAME);
 	}
 
@@ -46,10 +47,10 @@ public class DataConnector {
 			return connection;
 
 		} catch (SQLException e) {
-			String message = String.format(errorConnectionOpen, url);
-			ThrowHelper.throwWide(message, e);
+			String errMessage = String.format(errorConnectionOpen, url);
+			WideLogger.error(errMessage, e);
 
-			return null;
+			throw new AppException(errMessage);
 		}
 	}
 
@@ -67,8 +68,10 @@ public class DataConnector {
 			connection.close();
 
 		} catch (SQLException e) {
-			String message = String.format(errorConnectionClose, url);
-			ThrowHelper.throwWide(message, e);
+			String errMessage = String.format(errorConnectionClose, url);
+			WideLogger.error(errMessage, e);
+
+			throw new AppException(errMessage);
 		}
 	}
 
@@ -83,8 +86,10 @@ public class DataConnector {
 			Class.forName(className);
 
 		} catch (ClassNotFoundException e) {
-			String message = String.format(errorDriverClass, className);
-			ThrowHelper.throwWide(message, e);
+			String errMessage = String.format(errorDriverClass, className);
+			WideLogger.error(errMessage, e);
+
+			throw new AppException(errMessage);
 		}
 	}
 }

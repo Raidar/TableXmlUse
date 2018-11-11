@@ -1,10 +1,9 @@
-package org.raidar.app.errors;
+package org.raidar.app.logging;
 
 import org.apache.log4j.Logger;
 import org.raidar.app.common.AppConfigInt;
-import org.raidar.app.common.AppException;
 
-public class Thrower {
+public class BaseLogger {
 
 	private static final Logger logger = Logger.getLogger(AppConfigInt.LOGGER);
 
@@ -20,27 +19,21 @@ public class Thrower {
 		return getMessage(message);
 	}
 
-	public static void newBy (String message) {
-		String msg = getMessage(message);
-		logger.error(msg);
-
-		throw new AppException(msg);
+	public static void error (String message) {
+		logger.error(getMessage(message));
 	}
 
-	public static void newBy (String message, Throwable thrown, String details) {
-		String msg = getMessage(message);
-		logger.error(msg);
+	public static void error (String message, Throwable thrown, String details) {
+		logger.error(getMessage(message));
 
 		if (details != null) {
 			logger.error(details);
 		}
-
-		throw new AppException(msg, thrown);
 	}
 
 	@SuppressWarnings("unused")
-	public static void newBy (String message, Throwable thrown) {
-		newBy(message, thrown, getMessage(thrown));
+	public static void error (String message, Throwable thrown) {
+		error(message, thrown, getMessage(thrown));
 	}
 
 }
