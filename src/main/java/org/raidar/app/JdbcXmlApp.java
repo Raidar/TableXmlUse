@@ -7,7 +7,7 @@ import org.raidar.app.common.OperationType;
 import org.raidar.app.db.DataConnector;
 
 /**
- * Hello world!
+ * Using JDBC + XML.
  *
  */
 public class JdbcXmlApp {
@@ -59,5 +59,14 @@ public class JdbcXmlApp {
 		} finally {
 			DataConnector.closeConnection();
 		}
+
+		/* Avoid JVM bug:
+			ERROR: JDWP Unable to get JNI 1.2 environment, jvm->GetEnv() return code = -2
+			JDWP exit error AGENT_ERROR_NO_JNI_ENV(183):  [util.c:840]
+		   See also:
+		   https://bugs.java.com/bugdatabase/view_bug.do?bug_id=6476706
+		   https://stackoverflow.com/questions/2225737/error-jdwp-unable-to-get-jni-1-2-environment
+		*/
+		System.exit(0);
 	}
 }
